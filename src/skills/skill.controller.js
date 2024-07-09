@@ -11,7 +11,7 @@ export const createSkill = async (req, res) => {
         });
 
         await newSkill.save();
-        res.status(201).json(skill);
+        res.status(201).json(newSkill);
     } catch (e) {
         res.status(500).json({ message: e.message });
     }
