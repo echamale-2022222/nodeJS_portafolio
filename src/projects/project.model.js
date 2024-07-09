@@ -18,6 +18,21 @@ export const ProjectSchema = mongoose.Schema({
         trim: true,
         match: /^https?:\/\//
     },
+    imagenes: {
+        type: [{
+            type: String,
+            required: true,
+            trim: true,
+            match: /^https?:\/\//
+        }],
+        required: true,
+        validate: {
+            validator: function (array) {
+                return array.length > 0;
+            },
+            message: 'Must include at least one image'
+        }
+    },
     autor: {
         type: String,
         required: true,
