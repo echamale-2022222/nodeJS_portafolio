@@ -5,6 +5,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import projectRoutes from '../src/projects/project.routes.js';
 import skillRoutes from '../src/skills/skill.routes.js';
+import contactRoutes from '../src/contact/contact.routes.js'
 import { dbConnection } from './mongo.js';
 
 class Server{
@@ -13,6 +14,7 @@ class Server{
         this.port = process.env.PORT;
         this.projectsPath = '/portafolio/v1/projects';
         this.skillsPath = '/portafolio/v1/skills';
+        this.contactPath = '/portafolio/v1/contact';
 
         this.middlewares();
         this.connectDB();
@@ -34,6 +36,7 @@ class Server{
     routes(){
         this.app.use(this.projectsPath, projectRoutes);
         this.app.use(this.skillsPath, skillRoutes);
+        this.app.use(this.contactPath, contactRoutes);
     }
 
     listen(){
