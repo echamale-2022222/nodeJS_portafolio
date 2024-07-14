@@ -8,8 +8,6 @@ router.post(
     "/sendInfo",
     [
         check("email", "Email is required").isEmail(),
-        check("asunto", "Subject is required").not().isEmpty(),
-        check("mensaje", "Message is required").not().isEmpty(),
     ],
     createContact
 );
